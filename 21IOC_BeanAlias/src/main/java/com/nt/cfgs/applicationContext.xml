@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://www.springframework.org/schema/beans
+    		 http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  Dependent Class -->
+	<bean id="dt" class="java.util.Date" />
+	
+	<!-- Target Class --><!--  here name is alias name we can take multiple alias name -->
+	<bean id="wishMessage" name="wm,wm1"  class="com.nt.beans.WishMessage">
+		<!-- <property name="date" ref="dt"/> -->		
+		
+		<property name="date">		
+			<ref bean="dt"/>		
+		</property>
+	</bean>
+	
+	<alias name="wishMessage" alias="wma"/>
+	<alias name="wma" alias="wmb"/>
+
+</beans>

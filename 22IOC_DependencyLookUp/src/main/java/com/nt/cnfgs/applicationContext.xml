@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- In dependency lookup the problem is that if we chang the id name then we must to change it at calling
+	 	method this is hard coded so we convert it  in CASE 2-->
+	<bean id="engg" class="com.nt.beans.Engine"/>
+	
+	<!-- <bean id="vehicle" class="com.nt.beans.Vehicle"/> --><!-- CASE 1 -->
+	
+	<bean id="vehicles" class="com.nt.beans.Vehicle">	<!--  i can't commenting this line so,i write vechicles -->
+		<constructor-arg value="engg"/><!--  CASE:2 here we pass the id i.e value we are not passing the object  -->
+					<!--  By writing the constructor arg we must have to create 1 param constructor -->
+	</bean>			<!--  But problem in this is if we can mismatch the id and value name it will create vechile object then gives error -->
+	
+	<!--  to overcome this problem we use idREf tag  CASE 3 -->
+	<bean id="vehicle" class="com.nt.beans.Vehicle">
+		<constructor-arg>
+			<idref bean="engg"/><!-- now if we write wrong name then it error while creating vechile class  -->
+		</constructor-arg>
+	</bean>
+	
+</beans>

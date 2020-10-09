@@ -1,0 +1,14 @@
+package com.collection.api;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrrentHM {
+	public static void main(String[] args) {
+		ConcurrentHashMap c=new ConcurrentHashMap<>();
+		c.put(101, "durga");
+		c.put(101, "rani");
+		System.out.println(c);
+		c.putIfAbsent(101, "shiva");
+		System.out.println(c);
+	}
+}

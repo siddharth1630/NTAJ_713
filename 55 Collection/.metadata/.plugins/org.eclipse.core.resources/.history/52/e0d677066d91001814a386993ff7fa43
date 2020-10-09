@@ -1,0 +1,16 @@
+package com.durga.map;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class SortingElementOfList {
+	public static void main(String[] args) {
+		ArrayList l=new ArrayList();
+		l.add("afds");
+		l.add(232);
+		l.add(null);
+		System.out.println("beforre sorting "+ l);
+		Collections.sort(list);
+		System.out.println("after sorting "+l);
+	}
+}

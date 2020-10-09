@@ -1,0 +1,32 @@
+//package com.collection.api;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrrentHM {
+	public static void main(String[] args) {
+		ConcurrentHashMap c=new ConcurrentHashMap<>();
+		c.put(101, "durga");
+		c.put(101, "rani");
+		c.put(102, "siddharth");
+		c.put(103, "raj");
+		System.out.println(c);
+		c.putIfAbsent(101, "shiva");
+		System.out.println(c);
+		System.out.println("-------------------------------------");
+		c.remove(101,"durga");
+		System.out.println(c);
+		c.remove(101,"rani");
+		System.out.println(c);
+		System.out.println();
+		
+		System.out.println("-------------------------------------");
+		c.replace(101, "raj","sid");
+		System.out.println(c);
+		c.replace(103, "raj","sid");
+		System.out.println(c);
+		
+		
+		
+		
+	}
+}

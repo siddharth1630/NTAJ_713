@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- static factory bean instantiation gives its own class object -->
+	<bean id="cl" class="java.lang.Class" factory-method="forName">
+		<constructor-arg value="java.util.Date"/>
+	</bean>
+	
+	<!-- static factory bean instantiation gives related class object -->
+	<bean id="calendar" class="java.util.Calendar" factory-method="getInstance"/>
+	
+	<!-- static factory bean instantiation gives unrelated class object -->
+	<bean id="sys" class="java.lang.System" factory-method="getProperties"/>
+	
+	<!-- instance factory bean instantiation gives its own class object -->
+	<bean id="str" class="java.lang.String">
+		<constructor-arg value="siddharth"/>
+	</bean>
+	<bean id="s2" factory-bean="str" factory-method="concat">
+		<constructor-arg value=" gupta"/>
+	</bean>
+	
+	<!-- instance factory bean instantiation gives unrelated class object -->
+	<bean id="sb" class="java.lang.StringBuffer">
+		<constructor-arg value="siddharth"/>
+	</bean>
+	<bean id="sb1" factory-bean="sb" factory-method="substring">
+		<constructor-arg value=" 1"/>
+		<constructor-arg value=" 9"/>
+	</bean>
+</beans>

@@ -1,0 +1,24 @@
+package com.durga.map;
+
+import java.util.HashMap;
+import java.util.Set;
+
+public class HashMaps {
+	public static void main(String[] args) {
+		HashMap h=new HashMap<>();
+		h.put(1, "sid");
+		h.put(2, "babu");
+		h.put("gupta", "saheb");
+		h.put(323.32,324.342);
+		h.put(null, null);
+		h.put(null, null);
+		h.put(2, "siddhar");
+		System.out.println(h.put(1, "raj"));
+		
+		Set s=h.keySet();
+		System.out.println(s);
+		System.out.println(h.keySet());
+		
+		System.out.println(h);
+	}
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dob" class="java.util.Date">
+		<property name="year" value="95"/>
+		<property name="month" value="04"/>
+		<property name="date" value="10"/>
+	</bean>
+	
+	<bean id="doj" class="java.util.Date">
+		<property name="year" value="121"/>
+		<property name="month" value="05"/>
+		<property name="date" value="15"/>
+	</bean>
+	
+	<bean id="dom" class="java.util.Date">
+		<property name="year" value="123"/>
+		<property name="month" value="07"/>
+		<property name="date" value="18"/>
+	</bean>
+
+	<bean id="cInfo" class="com.nt.beans.PersonInfo">
+		<constructor-arg value="22222"/>
+		<constructor-arg value="siddharth"/>
+		<constructor-arg ref="dob"/>
+		<constructor-arg ref="doj"/>
+		<constructor-arg ref="dom"/>
+	</bean>
+	
+	<!-- IF WE DON'T WANT TO PASS SOME VALUE THEN WE PASS NULL I.E NULLINJECTION BECZ IN CONS-ARG WE MUST HAVE TO PASS THE VALUE -->
+	<bean id="cInfo2" class="com.nt.beans.PersonInfo">
+		<constructor-arg value="22222"/>	<!--  we cannot pass null in primitive type -->
+		<constructor-arg value="siddharth"/>
+		<constructor-arg><null/></constructor-arg>	<!--  HERE WE USE NullInjection -->
+		<constructor-arg ref="doj"/>
+		<constructor-arg ref="dom"/>
+	</bean>
+
+</beans>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!--  if merge is defined in beans property and not in property tag then it follow what is define in beans tag
+    		if it is also defalut in beans property then it is used for nested bean -->
+    
+    <!-- list injection -->
+    <bean id="base" class="com.nt.beans.CollegeCollection">
+    	<property name="studentName">
+    		<list>
+    			<value>siddharth</value>
+    			<value>akash</value>
+    			<value>vishwam</value>
+    			<value>kothari</value>
+    		</list>
+    	</property>
+    </bean>
+    
+    <!--  if we write only parent as a base then above collection property will replace with these 2 value
+    	 But if we write  merge is true then it merge all the value 
+     -->
+     <bean id="cc" class="com.nt.beans.CollegeCollection" parent="base" >
+    	<property name="studentName">
+    		<list >   <!--  if we write merge=default then it go to beans tag and search what the value
+    		 				is assigned	 in  merge property  -->
+    			<value>vikash</value>
+    			<value>amit</value>
+    		</list>
+    	</property>
+    </bean>
+        
+</beans>

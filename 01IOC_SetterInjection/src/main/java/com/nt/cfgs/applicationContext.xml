@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://www.springframework.org/schema/beans
+    		 http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  Dependent Class -->
+	<bean id="dt" class="java.util.Date" />
+	
+	<!-- Target Class -->
+	<bean id="wm" class="com.nt.beans.WishMessage">
+		<!-- <property name="date" ref="dt"/> -->		<!--  used for setter injection -->
+		
+		<property name="date">		<!--  above line and this line is same  -->
+			<ref bean="dt"/>		<!--  But recommanded is use above line -->
+		</property>
+	</bean>
+
+</beans>

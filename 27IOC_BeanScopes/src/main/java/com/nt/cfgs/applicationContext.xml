@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://www.springframework.org/schema/beans
+    		 http://www.springframework.org/schema/beans/spring-beans.xsd">
+    		 
+    <!-- By default bean scope is singleton which means we can call many no. of type it reuse the given obj 
+    	if the bean type is prototype then it doesn't store in internal cache so when the obj is call it will
+    		create a new object -->
+
+	<!--  Dependent Class -->
+	<bean id="dt" class="java.util.Date" />
+	
+	<!-- Target Class -->
+	<bean id="wm" class="com.nt.beans.WishMessage" scope="prototype">
+		<!-- <property name="date" ref="dt"/> -->		<!--  used for setter injection -->
+		
+		<property name="date">		<!--  above line and this line is same  -->
+			<ref bean="dt"/>		<!--  But recommanded is use above line -->
+		</property>
+	</bean>
+	
+	<bean id="print" class="com.nt.printer.Printer" scope="prototype" factory-method="getInstance"/>
+	
+
+</beans>

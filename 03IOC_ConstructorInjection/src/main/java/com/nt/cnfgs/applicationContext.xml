@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://www.springframework.org/schema/beans
+    		 http://www.springframework.org/schema/beans/spring-beans.xsd">
+    	
+    	<!-- Dependent class -->
+    	<bean id="dt" class="java.util.Date"/>	 
+    	
+    	<!-- Dependent class -->
+    	<bean id="dt1" class="java.util.Date"><!--  heere creating another object for Date class and set the value -->
+    		<property name="year" value="95"/>	<!--  here we perform setter injection and set the value -->
+    		<property name="month" value="04"/>
+    		<property name="date" value="10"/>	
+    	
+    	</bean>
+    	
+    	<!-- Target class -->
+    	<bean id="wmg" class="com.nt.bean.WishMessage">
+    		<property name="date" ref="dt1"/> <!-- here this can override the constructor value becz first obj is -->
+    		<constructor-arg name="date" ref="dt"/>	<!--  .. created then setter method is executed -->
+    	</bean>
+</beans>

@@ -1,0 +1,5 @@
+INDEX VERSION 1.130+D:\Certification course\CORE JAVA\Programs\55 Collection\.metadata\.plugins\org.eclipse.jdt.core
+500006570.index
+474758131.index
+996903982.index
+1089059475.index

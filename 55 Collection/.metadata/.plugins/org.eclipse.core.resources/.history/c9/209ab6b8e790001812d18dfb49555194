@@ -1,0 +1,33 @@
+package com.durga.map;
+
+import java.util.Hashtable;
+
+public class HashTables {
+	public static void main(String[] args) {
+		Hashtable h=new Hashtable<>();
+		h.put(new Temps(5),"A");
+		h.put(new Temps(2),"B");
+		h.put(new Temps(6),"C");
+		h.put(new Temps(15),"D");
+		h.put(new Temps(23),"H");
+		h.put(new Temps(26),"E");
+		h.put(new Temps(16),"F");
+	//	h.put("durga",null);
+		System.out.println(h);
+		System.out.println(h.size());
+		
+	}
+}
+
+class Temps{
+	int i;
+	Temps(int i){
+		this.i=i;
+	}
+	public int hashCode() {
+		return i;
+	}
+	public String toString() {
+		return i+" ";
+	}
+}

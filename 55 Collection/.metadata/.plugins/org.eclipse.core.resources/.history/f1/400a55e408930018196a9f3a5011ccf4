@@ -1,0 +1,29 @@
+package com.naresh.db;
+
+import java.util.ArrayList;
+
+import com.naresh.bean.AccountBean;
+
+public class CollectionDB {
+	
+	private ArrayList accList=new ArrayList<>();
+	
+	public  addAccount(AccountBean bean) {
+		accList.add(bean);
+	}
+	
+	public AccountBean getAccount(long accNum,String accType) {
+		AccountBean resAccBean=null;
+		AccountBean searchBean=new AccountBean();
+		searchBean.setAccNum(accNum);
+		searchBean.setAccType(accType);
+		
+		System.out.println(accList.indexOf(searchBean));
+		int index=accList.indexOf(searchBean);
+		if(index!=-1) {
+			resAccBean =(AccountBean)accList.get(index);			
+		}
+		return resAccBean;
+	}
+	
+}

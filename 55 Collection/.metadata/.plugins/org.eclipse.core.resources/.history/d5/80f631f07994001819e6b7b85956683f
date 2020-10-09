@@ -1,0 +1,24 @@
+package com.collection.api;
+
+import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class CopyOnWriteArrayLists {
+	public static void main(String[] args) {
+		CopyOnWriteArrayList c=new CopyOnWriteArrayList<>();
+		c.add("a");
+		c.add("b");
+		c.add("b");
+		c.addIfAbsent("a");
+		System.out.println(c);
+		
+		ArrayList l=new ArrayList<>();
+		l.add("a");
+		l.add("b");
+		
+		c.addAll(l);
+		System.out.println(c);
+		
+		
+	}
+}

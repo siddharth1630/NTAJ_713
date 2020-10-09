@@ -1,0 +1,13 @@
+package com.durga.map;
+
+import java.util.ArrayList;
+
+public class SortingElementOfList {
+	public static void main(String[] args) {
+		ArrayList l=new ArrayList();
+		l.add("afds");
+		l.add(232);
+		l.add(null);
+		System.out.println(l);
+	}
+}

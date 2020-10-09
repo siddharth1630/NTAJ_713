@@ -1,0 +1,23 @@
+package com.collection.api;
+
+import java.util.ArrayList;
+
+public class ConcurrentApi extends Thread{
+	static ArrayList al=new ArrayList<>();
+	
+	
+	
+	
+	public static void main(String[] args) {
+		al.add("a");
+		al.add("b");
+		al.add("c");
+		ConcurrentApi t=new ConcurrentApi();
+		t.start();
+		
+		
+	} 
+	
+}
+
+

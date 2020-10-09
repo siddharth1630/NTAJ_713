@@ -1,0 +1,41 @@
+package com.durga.map;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class HashMaps {
+	public static void main(String[] args) {
+		HashMap h=new HashMap<>();
+	//	LinkedHashMap h=new LinkedHashMap<>();
+		h.put(1, "sid");
+		h.put(2, "babu");
+		h.put("gupta", "saheb");
+		h.put(323.32,324.342);
+	//	h.put(null, null);
+	//	h.put(null, null);
+		h.put(2, "siddhar");
+	//	System.out.println(h.put(1, "raj"));
+		
+		Set s=h.keySet();
+	//	System.out.println(s);
+		
+		Collection c=h.values();
+	//	System.out.println(c);
+		
+	//	System.out.println(h.entrySet());
+		Set s1=h.entrySet();
+		
+		Iterator itr =s1.iterator();
+		while(itr.hasNext()) {
+			Map.Entry m=(Map.Entry)itr.next();
+			System.out.println(m.getKey()+"  "+m.getValue());
+			if(m.getKey().equals("gupta"))
+				m.setValue("babua");
+		}		
+		System.out.println(h);
+	}
+}

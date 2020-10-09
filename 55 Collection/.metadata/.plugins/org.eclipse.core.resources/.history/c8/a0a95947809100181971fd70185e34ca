@@ -1,0 +1,16 @@
+package com.collection.list;
+
+import java.util.ArrayList;
+
+public class Bpg_391_CreateArrayList {
+	public static void main(String[] args) {
+		ArrayList l=new ArrayList();
+		l.add("sid");
+		l.add("gupta");
+		l.add("raj");
+		l.add(32);
+		l.add(12);
+		l.add(89);
+		
+	}	
+}

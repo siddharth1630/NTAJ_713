@@ -1,0 +1,45 @@
+package com.durga.map;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class SortingElementOfList {
+	public static void main(String[] args) {
+		ArrayList l=new ArrayList();
+		l.add("sid");
+		l.add("afds");
+	//	l.add(232);	// for Collections.sort is not allowed to hetrogenewos object
+	//	l.add(null);// not allowed null
+		l.add("fish");
+		l.add("dish");
+		l.add("zero");
+		
+		System.out.println("beforre sorting "+ l);
+		Collections.sort(l);
+		System.out.println("after sorting "+l);
+		
+		ArrayList l1=new ArrayList();
+		l1.add("sid");
+		l1.add("afds");
+	//	l1.add(232);	// for Collections.sort is not allowed to hetrogenewos object
+	//	l1.add(null);// not allowed null
+		l1.add("fish");
+		l1.add("dish");
+		l1.add("zero");
+		
+		System.out.println("beforre sorting "+ l1);
+		Collection.sort(l1.new ASComparator());
+		System.out.println("after sorting "+l1);
+	}
+}
+class ASComparator implements Comparator{
+
+	public int compare(Object obj1, Object obj2) {
+		String s1=obj1.toString();
+		String s2=obj2.toString();
+		return s2.compareTo(s1);		
+	}
+	
+}

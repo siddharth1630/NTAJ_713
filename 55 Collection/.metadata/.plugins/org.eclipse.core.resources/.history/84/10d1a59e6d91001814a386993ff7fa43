@@ -1,0 +1,21 @@
+package com.durga.map;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class SortingElementOfList {
+	public static void main(String[] args) {
+		ArrayList l=new ArrayList();
+		l.add("sid");
+		l.add("afds");
+	//	l.add(232);	// for Collections.sort is not allowed to hetrogenewos object
+	//	l.add(null);// not allowed null
+		l.add("fish");
+		l.add("dish");
+		l.add("zero");
+		
+		System.out.println("beforre sorting "+ l);
+		Collections.sort(l);
+		System.out.println("after sorting "+l);
+	}
+}

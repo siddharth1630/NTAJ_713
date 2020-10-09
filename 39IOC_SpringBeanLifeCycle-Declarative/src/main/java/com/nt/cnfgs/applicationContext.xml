@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!--  if there is multiple bean with same init method then better to define at beans tag 
+		If scope is prototype then destroy is not possible becz it is not stroe in in memroy meta data-->
+	<bean id="voter" class="com.nt.bean.Voter" scope="prototype" init-method="myInit" destroy-method="myDestroy">
+		<property name="name" value="sid"/>
+		<property name="age" value="-34"/>
+	</bean>
+	
+	<bean id="voter1" class="com.nt.bean.Voter"  destroy-method="myDestroy" >
+		<property name="name" value="gupta"/>
+		<property name="age" value="45"/>
+	</bean>
+
+</beans>

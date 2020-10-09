@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+     <bean id="drds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+     	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+     	<!-- <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/> -->	<!--  we have to comment this url if i use hikari becz hikari have different url name -->
+     	<property name="username" value="springNatraj"/>
+     	<property name="password" value="springnataraj"/>
+     </bean>   
+     
+     <bean id="sdrds" class="org.springframework.jdbc.datasource.SingleConnectionDataSource" parent="drds"/>
+     
+     <bean id="hdrds" class="com.zaxxer.hikari.HikariDataSource" parent="drds">
+     	<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+     	<property name="minimumIdle" value="10"/>
+     	<property name="maximumPoolSize" value="20"/>
+     	<property name="connectionTimeout"  value="20000"/>
+     </bean>
+     
+     <bean id="playDao" class="com.nt.dao.PlayerDAOImpl">
+  <!--    	<constructor-arg ref="sdrds"/>	 -->   <!--  injecting single datasource object -->
+  		<constructor-arg ref="hdrds"></constructor-arg>
+     </bean>
+     
+     <bean id="playSer" class="com.nt.service.PlayerServiceImpl">
+     	<constructor-arg ref="playDao"/>
+     </bean>
+     
+      <bean id="controller" class="com.nt.controller.MainController">
+     	<constructor-arg ref="playSer"/>
+     </bean>
+        
+        
+</beans>

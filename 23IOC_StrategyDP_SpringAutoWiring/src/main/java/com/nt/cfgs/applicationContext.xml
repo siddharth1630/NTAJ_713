@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!-- byName injects with setter injection property name must be same -->
+    <!-- byType also injects with setter injection but here it goes with its class name-->
+    <!-- constructor injects with the 1 param constructor and param name must be same as id -->
+    <!-- autodetect works only on bean 2.x and spring 3.x ..if 0param constructor is there it is go with byName if 1param constructor is is go with constructor  -->
+    <!--  default goes to beans tag default attributes and take whole as this attribute -->
+    <!-- if we use "no" then the injection will not happen/disable -->
+    <bean id="dtdc" class="com.nt.comp.DTDC" /><!-- id must match with the property name in target class for byName autowiring -->
+    <bean id="blueDart" class="com.nt.comp.BlueDart" primary="true"/><!-- for byType autoWiring primary attribute must define to safe from the ambigutiy -->
+    
+    <!-- <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="byName"/> -->
+    
+    <!-- <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="byType"/> -->
+    
+	<!-- <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="constructor" /> -->
+	
+	<bean id="fpkt" class="com.nt.comp.Flipkart" autowire="byName"/>
+</beans>

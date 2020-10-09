@@ -1,0 +1,10 @@
+package com.collection.list;
+
+import java.util.ArrayList;
+
+public class Bpg_391_CreateArrayList {
+	ArrayList l=new ArrayList();
+	l.add("sid");
+	
+	
+}

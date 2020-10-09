@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  target method bean confg -->
+	<bean id="blm" class="com.nt.target.BankLoanMgmnt">
+		<replaced-method name="calculateIntrestAmount" replacer="offer">
+			<arg-type>float</arg-type>
+			<arg-type>float</arg-type>
+			<arg-type>int</arg-type>
+		</replaced-method>
+	</bean>
+	<!--  name attribute for which method we want to replace and replacer attribute for
+			which replacer object we want to execute -->
+	
+	<!--  replacer mthod cnfgs -->
+	<bean id="offer" class="com.nt.replacer.OfferReplacer"/>
+
+</beans>

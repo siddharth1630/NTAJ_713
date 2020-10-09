@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    
+    <!-- list injection -->
+    <bean id="base" class="com.nt.beans.CollegeCollection">
+    	<property name="studentName">
+    		<list>
+    			<value>siddharth</value>
+    			<value>akash</value>
+    			<value>vishwam</value>
+    			<value>kothari</value>
+    		</list>
+    	</property>
+    </bean>
+    
+  <!--  here if we don't write bean id then container create its own id i.e fullyQyalifiedName#<n> -->
+     <bean class="com.nt.beans.CollegeCollection" parent="base" >
+    	<property name="studentName">
+    		<list merge="true">   
+    			<value>vikash</value>
+    			<value>amit</value>
+    		</list>
+    	</property>
+    </bean>
+    
+     <bean class="com.nt.beans.CollegeCollection" >
+    	<property name="studentName">
+    		<list merge="true">   
+    			<value>hitesh</value>
+    			<value>arpita</value>
+    		</list>
+    	</property>
+    </bean>
+    
+     <bean class="com.nt.beans.CollegeCollection"  >
+    	<property name="studentName">
+    		<list merge="true">   
+    			<value>pushpesh</value>
+    			<value>ankit</value>
+    		</list>
+    	</property>
+    </bean>
+        
+</beans>

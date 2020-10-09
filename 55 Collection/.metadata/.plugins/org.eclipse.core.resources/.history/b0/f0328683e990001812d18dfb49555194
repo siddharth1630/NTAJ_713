@@ -1,0 +1,20 @@
+package com.durga.map;
+
+import java.util.PriorityQueue;
+
+public class PriorityQueues {
+	public static void main(String[] args) {
+		PriorityQueue p=new PriorityQueue();
+	//	p.add("sdi");
+	//	p.add(32);
+		System.out.println(p.peek());
+		System.out.println(p.element());
+		for(int i=1;i<=10;i++) {
+			p.offer(i);
+		}
+		System.out.println(p);
+		System.out.println(p.poll());
+		System.out.println(p);
+				
+	}
+}

@@ -1,0 +1,5 @@
+package com.nit.bean;
+
+public class Student {
+
+}

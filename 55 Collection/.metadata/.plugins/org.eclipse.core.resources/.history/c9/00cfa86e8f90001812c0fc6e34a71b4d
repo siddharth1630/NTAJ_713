@@ -1,0 +1,20 @@
+package com.durga.map;
+
+import java.util.HashMap;
+
+public class HashMaps {
+	public static void main(String[] args) {
+		HashMap h=new HashMap<>();
+		h.put(1, "sid");
+		h.put(2, "babu");
+		h.put("gupta", "saheb");
+		h.put(323.32,324.342);
+		h.put(null, null);
+		h.put(null, null);
+		h.put(2, "siddhar");
+		System.out.println(h.put(1, "raj"));
+		
+		
+		System.out.println(h);
+	}
+}

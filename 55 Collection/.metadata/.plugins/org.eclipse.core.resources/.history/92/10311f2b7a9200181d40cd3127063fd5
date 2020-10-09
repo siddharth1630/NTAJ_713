@@ -1,0 +1,46 @@
+package com.nt.trial;
+import java.util.*;
+import java.io.*;
+
+
+class Calculator{
+    public int power(int n,int p)throws NegativeArraySizeException{
+        try{
+            int total=1;
+            for(int i=1;i<=p;i++){
+                total=total*n;
+            }
+            return total;
+        }
+        catch(NegativeArraySizeException e){
+         //   String s="n and p should be non-negative";
+            return 34;
+            //throw new NegativeArraySizeException("n and p should be non-negative");
+        }
+    }
+}
+
+
+class Try{
+
+    public static void main(String[] args) {
+    
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        while (t-- > 0) {
+        
+            int n = in.nextInt();
+            int p = in.nextInt();
+            Calculator myCalculator = new Calculator();
+            try {
+                int ans = myCalculator.power(n, p);
+                System.out.println(ans);
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        in.close();
+    }
+}
+

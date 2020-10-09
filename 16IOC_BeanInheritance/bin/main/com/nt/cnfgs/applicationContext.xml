@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- CASE :1 BY DEFINING ALL THE PROPERTY FOR ALL THE NEW ENTRY PROBLEM IS THAT WE CAN NOT REUSE THE SAME VALUE -->
+	
+	<!-- <bean id="first" class="com.nt.beans.Bike">
+		<property name="engNo" value="chke212"/>
+		<property name="chaseNo" value="sfd1523"/>
+		<property name="bikeName" value="glamour"/>
+		<property name="bikeType" value="petrol"/>
+		<property name="noOfGears" value="4"/>
+		<property name="bikeVersion" value="GS4"/>
+		<property name="topSpeed" value="90"/>
+		<property name="ownerName" value="siddharth gupta"/>	
+	</bean>
+	
+	<bean id="second" class="com.nt.beans.Bike">
+		<property name="engNo" value="jgkddf23223"/>
+		<property name="chaseNo" value="gfk343"/>
+		<property name="bikeName" value="apache"/>
+		<property name="bikeType" value="petrol"/>
+		<property name="noOfGears" value="5"/>
+		<property name="bikeVersion" value="GS5"/>
+		<property name="topSpeed" value="110"/>
+		<property name="ownerName" value="vikash"/>	
+	</bean>
+ -->
+ 	 <!-- CASE :2 WE CAN USE BEANS INHERITACE BY WRITNG PARENT ATTRIBUTE IN CHILD BEAN -->
+ <!-- 	<bean id="third" class="com.nt.beans.Bike">
+		<property name="engNo" value="chke212"/>
+		<property name="chaseNo" value="sfd1523"/>
+		<property name="bikeName" value="glamour"/>
+		<property name="bikeType" value="petrol"/>
+		<property name="noOfGears" value="4"/>
+		<property name="bikeVersion" value="GS4"/>
+		<property name="topSpeed" value="90"/>
+		<property name="ownerName" value="siddharth gupta"/>	
+	</bean>
+	 -->
+	 
+	<!-- HERE WE OVERIDE SOME VALUE WHICH I WANT TO CHANGE AND OTHER VALUE IS AUTOMATICALLY TAKE IT FROM PARENT ONE SO HERE WE CAN REUSE IT -->
+	<!-- <bean id="fourth" class="com.nt.beans.Bike" parent="third">
+		<property name="engNo" value="jgkddf23223"/>
+		<property name="chaseNo" value="gfk343"/>
+		<property name="bikeVersion" value="GS5"/>	
+	</bean> -->
+	
+	<!-- CASE: 3 IMPROVED VERSION OF CASE:2 BY USING PARENT CLASS AS ABSTRACT WHERE WE CANNOT CALL IT AS
+		 GETBEAN OR INJECT ANYWHERE WE CAN WRITE ONLY COMMON PROPERTY IN PARENT BEAN -->
+	<bean id="baseBike" class="com.nt.beans.Bike" abstract="true">
+		<property name="bikeName" value="glamour"/>
+		<property name="bikeType" value="petrol"/>
+		<property name="noOfGears" value="4"/>
+	</bean>
+	
+	<bean id="fifth" class="com.nt.beans.Bike" parent="baseBike">
+		<property name="engNo" value="qwer123"/>
+		<property name="chaseNo" value="asd123"/>
+		<property name="bikeVersion" value="GS4"/>	
+		<property name="topSpeed" value="90"/>
+		<property name="ownerName" value="siddharth gupta"/>	
+	</bean> 
+	
+	<bean id="sixth" class="com.nt.beans.Bike" parent="baseBike">
+		<property name="engNo" value="iop897"/>
+		<property name="chaseNo" value="jkl554"/>
+		<property name="bikeVersion" value="GS6"/>
+		<property name="topSpeed" value="120"/>
+		<property name="ownerName" value="vikash gupta"/>		
+		<property name="noOfGears" value="6"/>	<!-- we can also override the base class property -->
+	</bean> 
+		 
+</beans>

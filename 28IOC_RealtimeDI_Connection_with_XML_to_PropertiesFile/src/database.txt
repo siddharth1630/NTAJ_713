@@ -1,0 +1,11 @@
+create table Player13(
+    pno number(10) constraint Player_PK primary key,
+    pname varchar2(30),
+    team    varchar2(30),
+    battingAvg    number(12,2),
+    bowllingAvg number(12,2)
+);
+
+create sequence seq2 START WITH 1 INCREMENT BY 1 MINVALUE 1 MAXVALUE 10000;
+
+select * from player13;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+   <bean id="drds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+     	<property name="driverClassName" value="${jdbc.driver}"/>
+     	<property name="url" value="${jdbc.url}"/>
+     	<property name="username" value="${jdbc.user}"/>
+     	<property name="password" value="${jdbc.pass}"/>
+     </bean>   
+     
+     <bean id="playDao" class="com.nt.dao.PlayerDAOImpl">
+     	<constructor-arg ref="drds"/>
+     </bean>
+     
+     <bean id="playSer" class="com.nt.service.PlayerServiceImpl">
+     	<constructor-arg ref="playDao"/>
+     </bean>
+     
+      <bean id="controller" class="com.nt.controller.MainController">
+     	<constructor-arg ref="playSer"/>
+     </bean>
+ 
+        
+        <!-- it will use multiple prop file -->
+        <bean id="pph" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        	<property name="locations">
+	     		<array>
+	     			<value>com/nt/commons/jdbc.properties</value>
+	     			<value>com/nt/commons/jdbc1.properties</value>
+	     		</array>
+     		</property>
+     	</bean>
+     
+     <bean class="com.nt.listner.IOCContainerMonitorListner"/>
+               
+</beans>
+

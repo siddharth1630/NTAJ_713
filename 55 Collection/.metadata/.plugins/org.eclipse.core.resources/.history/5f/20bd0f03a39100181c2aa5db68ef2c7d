@@ -1,0 +1,14 @@
+package com.collection.list;
+
+import java.util.Hashtable;
+
+public class Bpg399_HashTable {
+	public static void main(String[] args) {
+		Hashtable h=new Hashtable();
+		h.put("tom", new Double(23.32));
+		h.put("henery", new Double(12.25));
+		h.put("scott", new Double(5.42));
+		
+		System.out.println("hash table elements "+h);
+	}
+}

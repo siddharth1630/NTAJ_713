@@ -1,0 +1,28 @@
+package com.collection.list;
+
+import java.io.Serializable;
+
+public class UsingCustomElements {
+	public static void main(String[] args) {
+		
+	}
+}
+
+class Address implements Serializable{
+	int hno;
+	int streetNo;
+	String city;
+	
+	Address(int hno,int StreetNo,String ciyt){
+		this.hno=hno;
+		this.streetNo=streetNo;
+		this.city=city;
+	}
+	public String toString() {
+		return
+				"house no "+hno +"\t"+
+				"streetNo "+streetNo+ "\t"+
+				"city "+city;
+	}
+	
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="interceptors">
+			<array>
+				<bean class="com.nt.interceptor.TimeCheakingInterceptor"/>
+			</array>
+		</property>
+	</bean>
+			
+	
+	
+	<!-- controller class config -->
+	<bean id="/welcome.htm" class="com.nt.controller.ShowHomeController"/>
+	<bean id="/result.htm" class="com.nt.controller.WishMessageController">
+		<constructor-arg ref="service"/>
+	</bean>
+	
+		<!--  it does'nt support view resolver chaining for proofing this we write .htm in suffix -->
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=".htm"/>	
+	</bean> -->
+	
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<!--  if internalresourceView is there then it is not mandatory to jstl tag is there or not  But -->
+<!-- 		<property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/> -->
+		<!--  in jstlView it is mandatory to add jstl lib  -->
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	
+
+</beans>

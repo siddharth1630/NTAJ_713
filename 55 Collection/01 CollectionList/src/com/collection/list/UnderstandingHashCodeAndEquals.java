@@ -1,0 +1,61 @@
+package com.collection.list;
+
+import java.io.Serializable;
+import java.util.LinkedHashSet;
+
+public class UnderstandingHashCodeAndEquals {
+	public static void main(String[] args) {
+		LinkedHashSet l=new LinkedHashSet<>();
+		l.add(new Student(1,"Balaya",1));
+		l.add(new Student(2,"HariKrishna",1));
+		l.add(new Student(2,"Balaya",2));
+		l.add(new Student(1,"HariKrishna",2));
+		l.add(new Student(3,"jr.ntr",1));
+		l.add(new Student(3,"jr.ntr",1));
+		
+		l.add(new Integer(8));
+		l.add(new Integer(10));
+		l.add(new String("a"));
+		
+		System.out.println(l);
+		
+		l.remove(new Student(3,"jr.ntr",1));
+		System.out.println("\n after removing ");
+		System.out.println(l);		
+	}
+}
+
+class Student implements Serializable{
+	int sno;
+	String sname;
+	int whichClass;
+	
+	public Student(int sno,String sname,int whichClass) {
+		this.sno=sno;
+		this.sname=sname;
+		this.whichClass=whichClass;
+	}
+	public String toString() {
+		return whichClass+":"+sname;
+	}
+	public int hashCode() {
+		return whichClass;
+	//	return sno;
+	}
+	public boolean equals(Object obj) {
+		// below condition should be presented;else there is a chace of getting CCE
+		
+		if(obj instanceof Student) {
+			Student s=(Student)obj;
+			if(this.sno==sno	&&
+				this.sname==sname 	&&
+				this.whichClass==whichClass
+				) {
+				return true;
+			}				
+		}
+		return false;
+	}
+}
+
+

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="sysdate" class="java.util.Date"/>
+	<bean id="userdate" class="java.util.Date">
+		<property name="year" value="111"/>
+		<property name="month" value="4"/>
+		<property name="date" value="10"/>
+	</bean>
+
+
+    <bean id="ma" class="com.nt.beans.MarksArray">
+    	<property name="marks">
+    		<array>
+    			<value>10</value>
+    			<value>20</value>
+    			<value>30</value>
+    		</array>
+    	</property>
+    	
+    	<!-- if we want to use only date not array of date then write thsi -->
+    	<!-- <property name="sysdate" ref="sysdate"></property> -->
+    	
+    	<property name="allDate">
+    		<array>
+    			<ref bean="sysdate"/>
+    			<ref bean="userdate"/>
+    		</array>
+    	</property>
+    </bean>
+    
+    <!-- list injection -->
+    <bean id="cc" class="com.nt.beans.CollegeCollection">
+    	<property name="studentName">
+    		<list>
+    			<value>siddharth</value>
+    			<value>akash</value>
+    			<value>vishwam</value>
+    			<value>kothari</value>
+    		</list>
+    	</property>
+    	
+    	<property name="allDates">
+    		<list>
+    			<ref bean="sysdate"></ref>
+    			<ref bean="userdate"></ref>
+    		</list>
+    	</property>
+    
+    </bean>
+    
+    <!--  Set injection -->
+    <bean id="cInfo" class="com.nt.beans.ContactsSet">
+    	<constructor-arg name="phoneNumber">
+			<set value-type="java.lang.Long">
+				<value>8092101349</value>
+				<value>7979766213</value>
+				<value>9789384993</value>
+				<value>8092101349</value>	<!--  this duplicate value is not come -->
+			</set>    		
+    	
+    	</constructor-arg>
+    	<constructor-arg name="dates">
+    		<set value-type="java.util.Date">	<!--  the value-type is optional -->
+    			<ref bean="sysdate"/>
+    			<ref bean="userdate"/>
+    		</set>
+    	</constructor-arg>
+    
+    </bean>
+    
+    <!--  Map injection -->
+    <bean id="uInfo" class="com.nt.beans.UniversityMap">
+    	<constructor-arg name="facultyDetails">
+    		<map key-type="java.lang.Integer" value-type="java.lang.String">
+    			<entry>
+    				<key><value>1001</value>  </key>
+    				<value>Natraj</value>
+    			 </entry>
+    			
+    			 <entry>
+    				<key><value>1011</value>  </key>
+    				<value>Sudhakar</value>			<!-- THIS IS FIRST SYNTAX ANOTHER SYNTAX IS BELOW -->
+    			 </entry>
+    			 
+    			 <entry key="2222" value="Harikrishna"/>
+    			 <entry key="3333" value="Satish yellanki"/> 	
+    		</map>
+    	</constructor-arg>
+    	
+    	<constructor-arg name="datesInfo">
+    		<map>
+    			<entry key="today" value-ref="sysdate"/>
+    			<entry key="oldDay" value-ref="userdate"/>
+    		</map>
+    	</constructor-arg>
+    	
+    	<property name="property">
+    		<props>
+    			<prop key="mango">yellow</prop>
+    			<prop key="orange">ornage</prop>
+    			<prop key="guava">green</prop>
+    			<prop key="pineapple">white</prop>
+    		</props>
+    	
+    	</property>
+    </bean>
+        
+        
+</beans>

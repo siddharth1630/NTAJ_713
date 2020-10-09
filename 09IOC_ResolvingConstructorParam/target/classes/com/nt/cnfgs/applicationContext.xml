@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!--  It is best to write name attribute in constructor param -->
+    
+    <!--  by writing index it will assing value by its indx then there it is not mandatory to follow the seq.
+    		If teh multiple index  value is same then ambigous error come if index value is greater then size-1
+    		then gives exception -->
+    
+   <bean id="mark" class="com.nt.comp.Marks">
+    	<constructor-arg value="133"  />
+    	<constructor-arg index="0" value="44"  />
+    	<constructor-arg value="233"  />
+    	
+    </bean>
+    
+    <!--  By using type -->
+     <bean id="emp" class="com.nt.comp.Employee">
+    	<constructor-arg value="sid" type="java.lang.String" />
+    	<constructor-arg value="44" type="float"  />
+    	<constructor-arg value="233"  type="int"/>
+    	
+    </bean>
+    
+     <bean id="student" class="com.nt.comp.Student">
+    	<constructor-arg name="sname" value="sid"  />
+    	<constructor-arg name="sno" value="44" />
+    	<constructor-arg name="avg" value="233"/>
+    	<constructor-arg name="saddrs" value="deoghar"/>
+    	
+    </bean>
+    
+    
+
+</beans>

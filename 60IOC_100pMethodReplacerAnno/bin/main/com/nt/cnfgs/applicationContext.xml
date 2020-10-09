@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  target method bean confg -->
+	<bean id="blm" class="com.nt.target.BankLoanMgmnt">
+		<replaced-method name="calculateIntrestAmount" replacer="offer">
+			<arg-type>float</arg-type>
+			<arg-type>float</arg-type>
+			<arg-type>int</arg-type>
+		</replaced-method>
+	</bean>
+	
+</beans>

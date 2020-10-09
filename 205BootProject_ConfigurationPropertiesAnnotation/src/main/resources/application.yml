@@ -1,0 +1,14 @@
+cust:
+  info:
+    address:
+    - kamal
+    - kothi
+    cname: sid
+    cno: 123
+    nickNames:
+    - sid
+    - sourav
+    phones:
+      home: 3343434343
+      office: 11212121
+      personal: 67676776

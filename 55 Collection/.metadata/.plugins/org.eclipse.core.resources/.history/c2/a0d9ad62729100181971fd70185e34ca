@@ -1,0 +1,46 @@
+package com.durga.map;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class ArraysUtilitySorting {
+	public static void main(String[] args) {
+		int[] a= {2,3,4,21,54,213,7,6,5};
+		System.out.println("before sorting");
+		for(int a1:a) {
+			System.out.print(","+a1);
+		}
+		System.out.println();
+		System.out.println("\n After sorting");
+		Arrays.sort(a);
+		for(int a1:a) {
+			System.out.print(","+a1);
+		}
+		
+		System.out.println();
+		/*Arrays.sort(a,new ArraySortingComparator());		// not applicable for primitive type
+		for(int a1:a) {
+			System.out.print(","+a1);
+		}*/
+		String[] s= {"a","c","z","g","k"};
+		System.out.println("before sorting");
+		for(String s1:s)
+			System.out.println(s1);
+		System.out.println("customized");
+		Arrays.sort(s,new ArraySortingComparator());
+		for(String s1:s)
+			System.out.println(s1);
+		
+	}
+}
+class ArraySortingComparator implements Comparator{
+
+	@Override
+	public int compare(Object obj1, Object obj2) {
+		String s1=obj1.toString();
+		String s2=obj2.toString();
+		return s2.compareTo(s1);
+	}
+	
+}
+

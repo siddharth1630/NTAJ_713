@@ -1,0 +1,17 @@
+package com.nit.user;
+
+import java.util.LinkedHashSet;
+
+public class School {
+	public static void main(String[] args) {
+		LinkedHashSet lhs=new LinkedHashSet<>();
+		lhs.add(new Studnet(101,"hari","corejava",1000));
+		lhs.add(new Studnet(102,"balya","crt",600));
+		lhs.add(new Studnet(103,"durga","servlet java",1200));
+		lhs.add(new Studnet(104,"hari","java",1000));
+		lhs.add(new Studnet(101,"natraj","advance java",2000));
+		lhs.add(new Studnet(103,"sathish","plsql",2200));
+		lhs.add(new Studnet(106,"murli","oracle",1000));
+		
+	}
+}

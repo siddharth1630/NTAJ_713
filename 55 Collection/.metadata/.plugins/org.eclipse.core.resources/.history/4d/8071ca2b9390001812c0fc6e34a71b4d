@@ -1,0 +1,14 @@
+package com.durga.map;
+
+import java.util.IdentityHashMap;
+
+public class IdetittyAndWeakHM {
+	public static void main(String[] args) {
+		IdentityHashMap i=new IdentityHashMap<>();
+		i.put(1, 10);
+		i.put(2, 20);
+		i.put(2, 30);
+		i.put(1, 10);
+		System.out.println(i);
+	}
+}

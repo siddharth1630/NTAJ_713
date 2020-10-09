@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+   <!--  In constructor arg must pass the all param value else error But
+    In Setter injection it is up to u that how much value u pass -->
+    
+    <!--  In constructor injection if not use name attribute then must follow the parameter seq. else error But
+    	In setter injection must be name attribute and we write the attribute name it must be that it has setter method
+    	else error and in setter injection there must be default parameter constructor else error -->
+    	
+   <!--  in setter injection if we not define a value then it it gives the default value for primitive type and 
+   		it takes memory for that we use wrapper class which doesn't take memroy if value is not there it shows null value -->
+   
+    <bean id="stud" class="com.nt.comp.Student">
+    	<!-- <constructor-arg value="123"  />
+    	<constructor-arg value="siddharth"  />
+    	<constructor-arg value="deoghar"  />
+    	<constructor-arg value="55"  /> -->
+    	
+    	<property name="sname" value="sid"/>
+    	<property name="sno" value="121"/>
+    	
+    </bean>
+    
+    
+
+</beans>

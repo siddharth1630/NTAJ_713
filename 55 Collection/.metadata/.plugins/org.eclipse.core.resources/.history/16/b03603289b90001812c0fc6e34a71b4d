@@ -1,0 +1,20 @@
+package com.durga.map;
+
+import java.util.TreeMap;
+
+public class TreeMaps {
+	public static void main(String[] args) {
+		TreeMap t=new TreeMap<>();
+		t.put(1,"sid");
+		t.put(2, "babu");
+		t.put(3, "ratan");
+		t.put(4, "vkg");
+	//	t.put(null, null);
+		t.put(4, "siddhar");
+		t.put(5, null);
+		t.put("sd",3);
+		System.out.println(t);
+		
+		
+	}
+}

@@ -1,0 +1,43 @@
+package com.collection.list;
+
+import java.util.LinkedHashSet;
+
+public class Xpg54_TestCases {
+	public static void main(String[] args) {
+		LinkedHashSet l=new LinkedHashSet<>();
+		l.add(new Ex(5,6));
+		l.add(new Ex(5,6));
+		
+		Ex e1=new Ex(5,6));
+		Ex e2=new Ex(5,6));
+		Ex e4=new Ex(6,5));
+		Ex e4=new Ex(7,8));
+		Ex e5=e4;
+		
+		l.add(e1);
+		l.add(e2);
+		l.add(e3);
+		l.add(e4);
+		l.add(e5);
+		
+		System.out.println("no of objects added "+l.size());
+		System.out.println(l);
+		System.out.println("it is removed "+l.remove(new Ex(6,5)));
+		System.out.println("no of object after remvoe "+l.size());
+		System.out.println(l);
+		System.out.println();
+	}
+}
+
+class Ex{
+	int x;
+	int y;
+	
+	Ex(int x,int y){
+		this.x=x;
+		this.y=y;
+	}
+	public String toString() {
+		return x+"  "+y;
+	}
+}

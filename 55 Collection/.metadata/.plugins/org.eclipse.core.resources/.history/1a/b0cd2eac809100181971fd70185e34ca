@@ -1,0 +1,27 @@
+package com.collection.list;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+public class Bpg_391_CreateArrayList {
+	public static void main(String[] args) {
+		ArrayList l=new ArrayList();
+		l.add("sid");
+		l.add("gupta");
+		l.add("raj");
+		l.add(32);
+		l.add(12);
+		l.add(89);
+		
+		ListIterator i=l.listIterator();
+		while(i.hasNext()) {
+			Object obj=i.next();
+			if(obj instanceof String)
+				String str=obj.toString().toUpperCase();
+			else {
+				i.add(20);
+			}
+				
+		}
+	}	
+}

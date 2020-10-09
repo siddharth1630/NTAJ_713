@@ -1,0 +1,15 @@
+package com.naresh.db;
+
+import java.util.ArrayList;
+
+import com.naresh.bean.AccountBean;
+
+public class CollectionDB {
+	
+	private ArrayList accList=new ArrayList<>();
+	
+	public void addAccount(AccountBean bean) {
+		accList.add(bean);
+	}
+	
+}

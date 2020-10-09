@@ -1,0 +1,12 @@
+package com.durga.map;
+
+import java.awt.List;
+
+public class SortingElementOfList {
+	public static void main(String[] args) {
+		List l=new List();
+		l.add("afds");
+		l.add("32");
+		System.out.println(l);
+	}
+}

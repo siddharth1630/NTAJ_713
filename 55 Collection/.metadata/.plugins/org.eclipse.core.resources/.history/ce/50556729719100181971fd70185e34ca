@@ -1,0 +1,18 @@
+package com.durga.map;
+
+import java.util.Arrays;
+
+public class ArraysUtilitySorting {
+	public static void main(String[] args) {
+		int[] a= {2,3,4,21,54,213,7,6,5};
+		System.out.println("before sorting");
+		for(int a1:a) {
+			System.out.print(","+a1);
+		}
+		System.out.println("After sorting");
+		Arrays.sort(a);
+		for(int a1:a)
+			System.out.print(","+a1);
+		
+	}
+}

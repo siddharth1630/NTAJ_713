@@ -1,0 +1,40 @@
+package com.collection.api;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class CopyOnWriteArrayLists {
+	public static void main(String[] args) {
+		CopyOnWriteArrayList c=new CopyOnWriteArrayList<>();
+		c.add("a");
+		c.add("b");
+		c.add("b");
+		c.addIfAbsent("a");
+		System.out.println(c);
+		
+		ArrayList l=new ArrayList<>();
+		l.add("a");
+		l.add("b");
+		
+		c.addAll(l);
+		System.out.println(c);// a,b,b,a,b
+		
+		ArrayList l1=new ArrayList<>();
+		l1.add("a");
+		l1.add("c");
+		
+		c.addAllAbsent(l1);
+		System.out.println(c);// a,b,b,a,b,c
+		
+		Iterator itr=c.iterator();
+		while(itr.hasNext()) {
+			String s1=(String)itr.next();
+			if(s1.equals("a"))
+				itr.remove();
+		}
+		System.out.println(c);
+		
+		
+	}
+}

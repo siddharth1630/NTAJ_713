@@ -1,0 +1,31 @@
+package com.collection.list;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+
+public class Bpg398_MapClass {
+	public static void main(String[] args) {
+		HashMap h=new HashMap<>();
+		LinkedHashMap l=new LinkedHashMap<>();
+		TreeMap t=new TreeMap<>();
+		
+		h.put(1, new Double(4000.0));
+		h.put(5, new Double(3500.50));
+		h.put(3, new Double(2125.25));
+		
+		l.put(1, new Double(4000.0));
+		l.put(5, new Double(3500.50));
+		l.put(3, new Double(2125.25));
+		
+		t.put(1, new Double(4000.0));
+		t.put(5, new Double(3500.50));
+		t.put(3, new Double(2125.25));
+		
+		System.out.println("hashmpa "+h);
+		System.out.println("Lhashmap "+l);
+		System.out.println("treemap "+t);
+		
+		
+	}
+}
